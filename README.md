@@ -29,7 +29,37 @@ Creating the binary
 Running the binary 
 ```./main```
 
+## On Docker
+> Ensure you have docker installed. head here otherwise https://www.docker.com/products/docker-desktop/
 
-
-## On Docker 
 ```docker-compose up -d --build``` 
+
+# API Test
+## Health Check
+``` curl -i http://localhost:8080/health ``` 
+## Creating account
+
+```bash
+curl -i -X POST http://localhost:8080/accounts \
+  -H "Content-Type: application/json" \
+  -d '{"account_id":1,"initial_balance":"100.00"}'
+
+curl -i -X POST http://localhost:8080/accounts \
+  -H "Content-Type: application/json" \
+  -d '{"account_id":2,"initial_balance":"25.00"}'
+```
+
+## Listing account balance
+
+```bash
+curl -s http://localhost:8080/accounts/1
+curl -s http://localhost:8080/accounts/2
+```
+
+## Create transaction
+
+```bash
+curl -i -X POST http://localhost:8080/transactions \
+  -H "Content-Type: application/json" \
+  -d '{"source_account_id":1,"destination_account_id":2,"amount":"10.50"}'
+```

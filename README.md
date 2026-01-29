@@ -34,7 +34,22 @@ Running the binary
 
 ```docker-compose up -d --build``` 
 
-# API Test
+
+
+## Screenshots
+
+![Screenshot 2026-01-30 at 1.32.32 AM](<design/images/Screenshot 2026-01-30 at 1.32.32 AM.png>)
+![Screenshot 2026-01-30 at 12.49.31 AM](<design/images/Screenshot 2026-01-30 at 12.49.31 AM.png>)
+![Screenshot 2026-01-30 at 12.50.17 AM](<design/images/Screenshot 2026-01-30 at 12.50.17 AM.png>)
+![Screenshot 2026-01-30 at 12.50.48 AM](<design/images/Screenshot 2026-01-30 at 12.50.48 AM.png>)
+![Screenshot 2026-01-30 at 12.51.24 AM](<design/images/Screenshot 2026-01-30 at 12.51.24 AM.png>)
+![Screenshot 2026-01-30 at 12.51.47 AM](<design/images/Screenshot 2026-01-30 at 12.51.47 AM.png>)
+![Screenshot 2026-01-30 at 12.52.11 AM](<design/images/Screenshot 2026-01-30 at 12.52.11 AM.png>)
+![Screenshot 2026-01-30 at 12.52.35 AM](<design/images/Screenshot 2026-01-30 at 12.52.35 AM.png>)
+![Screenshot 2026-01-30 at 12.52.59 AM](<design/images/Screenshot 2026-01-30 at 12.52.59 AM.png>)
+![Screenshot 2026-01-30 at 12.53.24 AM](<design/images/Screenshot 2026-01-30 at 12.53.24 AM.png>)
+![Screenshot 2026-01-30 at 12.53.44 AM](<design/images/Screenshot 2026-01-30 at 12.53.44 AM.png>)
+
 ## Health Check
 ``` curl -i http://localhost:8080/health ``` 
 ## Creating account

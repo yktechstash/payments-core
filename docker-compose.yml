@@ -4,11 +4,11 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: aaa
+      POSTGRES_DB: payments
     ports:
       - "5432:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d aaa"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d payments"]
       interval: 3s
       timeout: 3s
       retries: 20
@@ -18,7 +18,7 @@ services:
     environment:
       ADDR: ":8080"
       DB_DRIVER: "postgres"
-      DB_DSN: "postgres://postgres:postgres@db:5432/aaa?sslmode=disable"
+      DB_DSN: "postgres://postgres:postgres@db:5432/payments?sslmode=disable"
     ports:
       - "8080:8080"
     depends_on:

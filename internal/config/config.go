@@ -17,9 +17,9 @@ var Conf Config
 
 func MustInit() {
 		wd, _ := os.Getwd()
-
-	def := filepath.Join(wd, "internal", "config", "config.yaml")
-	path := getenv("CONFIG_PATH", def)
+	confFileName := getenv("CONFIG_FILE", "config.yaml")
+	path := filepath.Join(wd, "internal", "config", confFileName)
+	
 	c, err := fromYAML(path)
 	if err != nil {
 		panic("cannot load config from path. error : "+err.Error())

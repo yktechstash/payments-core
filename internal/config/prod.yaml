@@ -1,0 +1,4 @@
+addr: ":8080"
+app_port: "8080"
+db_driver: "postgres"
+db_dsn: "postgres://postgres:postgres@db:5432/payments?sslmode=disable"

@@ -20,3 +20,16 @@ I want to ensure my system has CA (of CAP Theorem)
 ## Transfers API - POST {url}/accounts 
 
 ![transfers api plant UML](design/create_account.png)
+
+
+How to run ?
+## On Local
+Creating the binary 
+```go build  cmd/api/main.go``` 
+Running the binary 
+```./main```
+
+
+
+## On Docker 
+```docker-compose up -d --build``` 

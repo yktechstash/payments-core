@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/google/uuid"
+	"github.com/payments-core/logs"
 	"github.com/payments-core/internal/domain"
 )
 
@@ -15,14 +16,17 @@ type createTransactionRequest struct {
 }
 
 func (s *Server) handleCreateTransaction(w http.ResponseWriter, r *http.Request) {
+	logs.CtxInfo(r.Context(), "[Router] [CreateTransaction] start")
 	var req createTransactionRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		logs.CtxInfo(r.Context(), "[Router] [CreateTransaction] invalid json , err:%v", err)
 		writeError(w, http.StatusBadRequest, "invalid json")
 		return
 	}
 
 	amt, err := domain.ParseMoney(req.Amount)
 	if err != nil {
+		logs.CtxInfo(r.Context(), "[Router] [CreateTransaction] invalid amount , err:%v", err)
 		writeDomainErr(w, err)
 		return
 	}
@@ -36,9 +40,11 @@ func (s *Server) handleCreateTransaction(w http.ResponseWriter, r *http.Request)
 		txID,
 	)
 	if err != nil {
+		logs.CtxInfo(r.Context(), "[Router] [CreateTransaction] error while creating transaction , err:%v", err)
 		writeDomainErr(w, err)
 		return
 	}
 
+	logs.CtxInfo(r.Context(), "[Router] [CreateTransaction] success , tx_id:%v", txID)
 	w.WriteHeader(http.StatusCreated)
 }

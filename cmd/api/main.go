@@ -1,11 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"github.com/payments-core/internal/config"
+	"github.com/payments-core/internal/router"
+)
 
 func main() {
-	fmt.Println("Hello World")
-	// config.MustInit()
-	// db.MustInit()
-	// server.Start()
-
+	config.MustInit()
+	router.Start()
 }

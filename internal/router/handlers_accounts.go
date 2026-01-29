@@ -2,10 +2,11 @@ package router
 
 import (
 	"encoding/json"
-	"github.com/gorilla/mux"
-	"github.com/payments-core/internal/domain"
 	"net/http"
 	"strconv"
+
+	"github.com/gorilla/mux"
+	"github.com/payments-core/internal/domain"
 )
 
 type createAccountRequest struct {
@@ -57,6 +58,6 @@ func (s *Server) handleGetAccount(w http.ResponseWriter, r *http.Request) {
 
 	writeJSON(w, http.StatusOK, getAccountResponse{
 		AccountID: int64(acc.AccountID),
-		Balance:   acc.Balance.String(),
+		Balance:   acc.Balance,
 	})
 }
